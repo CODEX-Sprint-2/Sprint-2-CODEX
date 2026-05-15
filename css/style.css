@@ -1,0 +1,533 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.celular-container {
+    width: 360px;
+    height: 740px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 8px solid #222;
+}
+
+
+.camera-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px; 
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    padding: 0 10px;
+}
+
+.camera-header i {
+    font-size: 1.5rem; 
+    display: flex;
+    align-items: center;
+}
+
+.camera-header a {
+    text-decoration: none;
+    display: flex; 
+}
+
+.camera-header .botao-icone {
+    font-size: 1.1rem; 
+    font-weight: bold;
+}
+
+.botao-icone {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
+.foto-camera {
+    flex-grow: 1;
+    background-image: url('https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1000');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.foto-camera-selfie {
+    flex-grow: 1;
+    background-image: url('https://img.freepik.com/fotos-premium/mulher-jovem-turista-fazendo-selfie-foto-com-a-torre-eiffel-ao-fundo-em-dia-ensolarado-em-paris-franca_63239-4925.jpg?w=2000');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+
+.botao-funcao-mat {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+
+.camera-footer {
+    background: black;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.modos-camera {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+}
+
+.link-modo {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.link-modo-ativo {
+    color: #ffd700; 
+    font-weight: bold;
+}
+
+
+.secao-foto {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.botao-foto {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    border: 5px solid #444;
+    cursor: pointer;
+}
+.flip-camera {
+    width: 50px;  
+    height: 50px; 
+    border-radius: 50%;
+    border: none; 
+    background: black; 
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+}
+
+.galeria img {
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor:not-allowed
+}
+
+
+.barra-navegacao {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0 20px 0; 
+    color: white;
+    font-size: 1.4rem;
+    
+}
+
+.barra-navegacao span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: not-allowed;
+}
+
+
+
+
+
+.icone-fhd {
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1.5px solid white;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.toggle-camera.ativo {
+    background-color: #ffd9002a;
+    color: yellow;
+    
+}
+
+.espaco-header {
+    flex-grow: 1;
+}
+
+
+.botao-foto.modo-video {
+    background-color: #ff0000;
+    border: 5px solid white;   
+    position: relative;
+}
+
+
+.botao-foto.modo-video::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    display: none; 
+}
+
+
+.modos-camera.active {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+
+
+.popup-qualidade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: none; 
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
+    z-index: 100;
+}
+
+.popup-qualidade.show {
+    display: flex; 
+}
+
+.popup-container {
+    width: 90%;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 20px;
+    color: white;
+}
+
+.popup-container h3 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-weight: normal;
+    padding-left: 10px;
+}
+
+.grade-qualidade, .grade-fps {
+    display: flex;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    padding: 5px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.grade-qualidade button, .grade-fps button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #999;
+    padding: 10px 0;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+
+.grade-qualidade button.ativo, .grade-fps button.ativo {
+    background: #333;
+    color: #ffd700; 
+}
+
+.grade-qualidade button:hover {
+    color: white;
+}
+
+
+.overlay-modos {
+    width: 100%;
+    height: 65%; 
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px); 
+    border-radius: 24px 24px 0 0;
+    padding: 30px 15px;
+    position: absolute;
+    bottom: 0;
+}
+
+
+.grade-modos {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+    gap: 25px 5px; 
+}
+
+.modo-item {
+    width: 23%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.icone-circulo {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: not-allowed ;
+}
+
+.icone-circulo i {
+    color: white;
+    font-size: 1.6rem;
+}
+
+.modo-item span {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: normal;
+
+}
+
+
+.config-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    background: black;
+}
+
+.config-header h2 { font-size: 1.1rem; font-weight: 500; }
+
+.conteudo-config {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0 15px 20px 15px;
+    background: black;
+}
+
+.grupo-config h3 {
+    color: #777;
+    font-size: 0.8rem;
+    margin: 20px 0 8px 10px;
+}
+
+.secao-config {
+    background-color: #1c1c1c;
+    border-radius: 16px;
+    margin-bottom: 5px;
+}
+
+.item-config {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #2a2a2a;
+    color: #efefef;
+    font-size: 0.9rem;
+}
+
+.item-config:last-child { border-bottom: none; }
+
+.faixa-texto small { color: #4a9eff; font-size: 0.7rem; margin-top: 3px; }
+
+
+.caixa-alternar {
+    width: 44px;
+    height: 24px;
+    background-color: #333;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: 1px solid #444;
+}
+
+.caixa-alternar .circulo {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.caixa-alternar.ativo {
+    background-color: white;
+}
+
+.caixa-alternar.ativo .circulo {
+    left: 21px; 
+    background-color: black;
+}   
+
+
+
+.login-bg {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+    url('https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1000');
+    background-size: cover;
+    background-position: center;
+    justify-content: space-around;
+}
+
+.login-header {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+
+.login-header i { font-size: 2.5rem; margin-bottom: 10px; color: #ffd700; }
+.login-header h1 { font-size: 1.5rem; font-weight: 500; }
+.login-header p { font-size: 0.9rem; opacity: 0.8; margin-top: 5px; }
+
+
+.tela-pin   {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.ponto {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid white;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.ponto.cheio {
+    background-color: white;
+}
+
+
+.teclado-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.teclado {
+    display: flex;
+    flex-wrap: wrap; 
+    width: 280px;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.chave {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.chave:active {
+    background: rgba(255, 255, 255, 0.4); 
+}
+
+.chave.transparente { background: transparent; cursor: default; }
+
+.chave-acao { font-size: 1.2rem; background: transparent; }
+
+.login-footer {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.botao-emergencia {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+.mat-bg {
+    background-image: url("../telafeat.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
