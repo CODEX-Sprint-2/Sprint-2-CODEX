@@ -1,4 +1,4 @@
-let pinInserido = "";
+var pinInserido = "";
 const pinCorreto = "1234";
 
 const dots = document.querySelectorAll('.ponto');
